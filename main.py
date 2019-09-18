@@ -1,10 +1,12 @@
+#!/usr/bin/python
+import sys
 from xml.dom import minidom
 
 nodetitle = 'text'
 
 #parsing files to compare them. file location will be static for the moment
-src = minidom.parse(r'C:\Users\marc-\Desktop\dev\superteck-app\src\Superteck.Core\Localization\SourceFiles\Superteck.xml')
-comp = minidom.parse(r'C:\Users\marc-\Desktop\dev\superteck-app\src\Superteck.Core\Localization\SourceFiles\Superteck-fr.xml')
+src = minidom.parse(str(sys.argv[1]))
+comp = minidom.parse(str(sys.argv[2]))
 
 #fetching localization items in both xml files
 itemlistsrc = src.getElementsByTagName(nodetitle)
